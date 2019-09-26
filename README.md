@@ -1,44 +1,16 @@
 # org.etui.contacts
 
-![Screenshot](/images/screenshot.png)
+Custom code concerning contacts.
 
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+## Token: etui_addressee
 
-The extension is licensed under [AGPL-3.0](LICENSE.txt).
+This custom token enhances the standard addressee token.
 
-## Requirements
+If the current contact is an organization, it returns the name of the organization.
 
-* PHP v5.4+
-* CiviCRM (*FIXME: Version number*)
+If the current contact is an individual:
 
-## Installation (Web UI)
-
-This extension has not yet been published for installation via the web UI.
-
-## Installation (CLI, Zip)
-
-Sysadmins and developers may download the `.zip` file for this extension and
-install it with the command-line tool [cv](https://github.com/civicrm/cv).
-
-```bash
-cd <extension-dir>
-cv dl org.etui.contacts@https://github.com/FIXME/org.etui.contacts/archive/master.zip
-```
-
-## Installation (CLI, Git)
-
-Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) repo for this extension and
-install it with the command-line tool [cv](https://github.com/civicrm/cv).
-
-```bash
-git clone https://github.com/FIXME/org.etui.contacts.git
-cv en contacts
-```
-
-## Usage
-
-(* FIXME: Where would a new user navigate to get started? What changes would they see? *)
-
-## Known Issues
-
-(* FIXME *)
+ * if his/her address is of type "home" or of type "magazine without organization": it returns the addressee of the current contact (in most cases: prefix + first name + last name)
+ * else, if his/her address refers to another contact: it returns the name of that contact and on the next line the addressee of the current contact
+ * else, it returns the name of the current employer and on the next line the addressee of the current contact
+ 
